@@ -26,7 +26,7 @@
 --   start_lsn - First LSN to be in the output.  If NULL, starts at the beginning of the active portion of the log.
 --   end_lsn - Last LSN to be in the output.  If NULL, ends at the finish of the active portion of the log.
 -- Output
---   About 100 columns of output related to the transaction log
+--   About 130 columns of output related to the transaction log
 
 use CorpDB;
 
@@ -39,9 +39,9 @@ from fn_dblog(null, null);
 -- and in the second statement the values will need to be prefixed with '0x'.
 
 select *
-from fn_dblog('594:441:3', '594:444:2');
+from fn_dblog('1242:880:314', '1243:919:268');
 
 select *
-from fn_dblog('0x00000252:000001b9:0003', '0x00000252:000001bc:0002');
+from fn_dblog('0x000004da:00000370:013a', '0x000004db:00000397:010c');
 
 -- 
