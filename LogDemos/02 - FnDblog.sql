@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------------------------------------------------
--- FnDblog.sql
+-- 02 - FnDblog.sql
 -----------------------------------------------------------------------------------------------------------------------
 -- Copyright 2016, Brian Hansen (brian@tf3604.com).
 -- Version 1.0.0
@@ -44,4 +44,12 @@ from fn_dblog('1242:880:314', '1243:919:268');
 select *
 from fn_dblog('0x000004da:00000370:013a', '0x000004db:00000397:010c');
 
--- 
+-- By default, fn_dblog only returns records from the active portion of the log.  If trace flag 2537 is enabled,
+-- fn_dblog will return records from the inactive portion as well.
+
+dbcc traceon (2537);
+
+select *
+from fn_dblog(null, null);
+
+dbcc traceoff (2537);
