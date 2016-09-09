@@ -26,14 +26,14 @@
           <FullPath>00 - Prep.sql</FullPath>
         </FileNode>
         <FileNode Name="01 - DbccLoginfo.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>01 - DbccLoginfo.sql</FullPath>
         </FileNode>
         <FileNode Name="02 - FnDblog.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>02 - FnDblog.sql</FullPath>
         </FileNode>
@@ -49,9 +49,21 @@
           <AssociatedConnUserName />
           <FullPath>04 - FnDumpDbLog.sql</FullPath>
         </FileNode>
+        <FileNode Name="05 - SimpleRecovery.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>05 - SimpleRecovery.sql</FullPath>
+        </FileNode>
+        <FileNode Name="06 - ChangeToFullRecovery.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>06 - ChangeToFullRecovery.sql</FullPath>
+        </FileNode>
         <FileNode Name="07 - RealFullRecovery.sql">
-          <AssociatedConnectionMoniker />
-          <AssociatedConnSrvName />
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
           <AssociatedConnUserName />
           <FullPath>07 - RealFullRecovery.sql</FullPath>
         </FileNode>
