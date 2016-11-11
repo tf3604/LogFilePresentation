@@ -2,38 +2,25 @@
 <SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="LogDemos">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
-      <Items>
-        <ConnectionNode Name="(local)\sql2016:HANSENFAM\hansen">
-          <Created>2016-09-08T18:26:00.6300518-05:00</Created>
-          <Type>SQL</Type>
-          <Server>(local)\sql2016</Server>
-          <UserName />
-          <Authentication>Windows Authentication</Authentication>
-          <InitialDB>master</InitialDB>
-          <LoginTimeout>15</LoginTimeout>
-          <ExecutionTimeout>0</ExecutionTimeout>
-          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
-          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
-        </ConnectionNode>
-      </Items>
+      <Items />
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
         <FileNode Name="00 - Prep.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>00 - Prep.sql</FullPath>
         </FileNode>
         <FileNode Name="01 - DbccLoginfo.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>01 - DbccLoginfo.sql</FullPath>
         </FileNode>
         <FileNode Name="02 - FnDblog.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>02 - FnDblog.sql</FullPath>
         </FileNode>
@@ -50,20 +37,26 @@
           <FullPath>04 - FnDumpDbLog.sql</FullPath>
         </FileNode>
         <FileNode Name="05 - SimpleRecovery.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>05 - SimpleRecovery.sql</FullPath>
         </FileNode>
         <FileNode Name="06 - ChangeToFullRecovery.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>06 - ChangeToFullRecovery.sql</FullPath>
         </FileNode>
+        <FileNode Name="06b - CheckRecoveryModel.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>06b - CheckRecoveryModel.sql</FullPath>
+        </FileNode>
         <FileNode Name="07 - RealFullRecovery.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>07 - RealFullRecovery.sql</FullPath>
         </FileNode>
@@ -74,14 +67,14 @@
           <FullPath>07b - BackupLog.sql</FullPath>
         </FileNode>
         <FileNode Name="08 - Rollbacks.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>08 - Rollbacks.sql</FullPath>
         </FileNode>
         <FileNode Name="09 - EliminatingVLFFragmentation.sql">
-          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:(local)\sql2016:True</AssociatedConnectionMoniker>
-          <AssociatedConnSrvName>(local)\sql2016</AssociatedConnSrvName>
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
           <AssociatedConnUserName />
           <FullPath>09 - EliminatingVLFFragmentation.sql</FullPath>
         </FileNode>
