@@ -23,13 +23,13 @@
 -- Setup:
 --    Start LogFileVisualizer and point it at CorpDB.
 --    Make sure CorpDB is in the SIMPLE recovery model.
---    Shrink the log to 5 MB.
+--    Shrink the log to 10 MB.
 
 use CorpDB;
 go
 select db.recovery_model_desc from sys.databases db where db.Name = 'CorpDB';
 go
-dbcc shrinkfile (N'CorpDB_log' , 5, truncateonly);
+dbcc shrinkfile (N'CorpDB_log', 10, truncateonly);
 go
 
 -- Now we'll switch the database to FULL recovery.
@@ -43,14 +43,14 @@ go
 -- Observe the effects on the log.
 -- Execute the statement a number of times and observe that the log does not grow.
 
-exec Admin.dbo.spGenerateRandomCustomers 10000;
+exec CorpDB.dbo.spGenerateRandomCustomers 10000;
 
 -- Run the statement in a loop with a short delay between executions.
 -- Stop after a few seconds.
 
 while 0 = 0
 begin;
-	exec Admin.dbo.spGenerateRandomCustomers 10000;
+	exec CorpDB.dbo.spGenerateRandomCustomers 10000;
 	waitfor delay '0:00:01';
 end;
 go

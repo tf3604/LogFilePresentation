@@ -48,16 +48,14 @@ go
 dbcc shrinkfile (N'CorpDB_log' , 0, truncateonly);
 go
 
--- Next we will set the size of the log to some good initial value.  Note that an 8 MB log will create 4 VLFs, so
+-- Next we will set the size of the log to some good initial value.  Note that an 8 MB log growth will create 4 VLFs, so
 -- they will be about 2 MB each.
 
-alter database CorpDB modify file (name = N'CorpDB_log', size = 8mb);
+alter database CorpDB modify file (name = N'CorpDB_log', size = 16mb);
 go
 
 -- And then we will continue to grow the log in 8mb increments.
 
-alter database CorpDB modify file (name = N'CorpDB_log', size = 16mb);
-go
 alter database CorpDB modify file (name = N'CorpDB_log', size = 24mb);
 go
 alter database CorpDB modify file (name = N'CorpDB_log', size = 32mb);

@@ -42,22 +42,22 @@ backup database CorpDB to disk = 'nul';
 -- Observe the effects on the log.
 -- Execute the statement a number of times and observe that the log now grows and cannot clear.
 
-exec Admin.dbo.spGenerateRandomCustomers 10000;
+exec CorpDB.dbo.spGenerateRandomCustomers 10000;
 
 -- Run the statement in a loop with a short delay between executions.
 -- Stop after a few seconds.
 
 while 0 = 0
 begin;
-	exec Admin.dbo.spGenerateRandomCustomers 10000;
+	exec CorpDB.dbo.spGenerateRandomCustomers 10000;
 	waitfor delay '0:00:01';
 end;
 go
 
--- If we now try to shrink the log back to 5 MB, nothing really happens.  It may remove a VLF at the end of the
+-- If we now try to shrink the log back to 10 MB, nothing really happens.  It may remove a VLF at the end of the
 -- log, but the active log records are still need and cannot be cleared.
 
-dbcc shrinkfile (N'CorpDB_log' , 5, truncateonly);
+dbcc shrinkfile (N'CorpDB_log' , 10, truncateonly);
 go
 
 -- So what needs to happen for the log to clear?  SQL gives us a clue:
@@ -70,16 +70,17 @@ go
 backup log CorpDB to disk = 'nul';
 go
 
--- Now shrink the database back to 5 MB.
+-- Now shrink the database back to 10 MB.  Note that we may need to repeatedly backup the log and
+-- shrink the database if the end of the log is still active.
 
-dbcc shrinkfile (N'CorpDB_log' , 5, truncateonly);
+dbcc shrinkfile (N'CorpDB_log' , 10, truncateonly);
 
 -- Now let's run the workload in a loop again.  First, however, we need to kick off a process to take
 -- regular log backups.  Start the script in file: 07b - BackupLog.sql
 
 while 0 = 0
 begin;
-	exec Admin.dbo.spGenerateRandomCustomers 25000;
+	exec CorpDB.dbo.spGenerateRandomCustomers 25000;
 	waitfor delay '0:00:01';
 end;
 go
