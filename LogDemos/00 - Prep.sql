@@ -1,6 +1,7 @@
 use master;
 
 alter database CorpDB set offline with rollback immediate;
+-- drop database CorpDB;
 
 restore database CorpDB from disk = 'C:\data\sql2016\backup\CorpDB.bak'
 with move 'CorpDB' to 'c:\data\sql2016\data\CorpDB.mdf',
