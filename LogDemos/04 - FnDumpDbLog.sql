@@ -34,7 +34,7 @@
 --   About 130 columns of output related to the transaction log
 
 select *
-from fn_dump_dblog (null, null, 'DISK', 1,  'C:\data\sql2016\backup\CorpDB.20160910_093008.trn',
+from fn_dump_dblog (null, null, 'DISK', 1,  'C:\data\sql2016\backup\CorpDB.20160802_2143.trn',
 	null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 
 	null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
 	null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, 

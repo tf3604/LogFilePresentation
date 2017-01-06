@@ -39,10 +39,10 @@ from fn_dblog(null, null);
 -- and in the second statement the values will need to be prefixed with '0x'.
 
 select *
-from fn_dblog('285:640:6', '285:775:133');
+from fn_dblog('285:1568:124', '285:1688:29');
 
 select *
-from fn_dblog('0x0000011d:00000280:0006', '0x0000011d:00000307:0085');
+from fn_dblog('0x0000011d:00000620:007c', '0x0000011d:00000698:001d');
 
 -- By default, fn_dblog only returns records from the active portion of the log.  If trace flag 2537 is enabled,
 -- fn_dblog will return records from the inactive portion as well.
