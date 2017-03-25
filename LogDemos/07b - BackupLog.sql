@@ -2,7 +2,7 @@
 -- 07b - BackupLog.sql
 -----------------------------------------------------------------------------------------------------------------------
 -- Copyright 2016-2017, Brian Hansen (brian@tf3604.com).
--- Version 1.0.3
+-- Version 1.0.4
 -- Look for the most recent version of this script at www.tf3604.com/log.
 --
 -- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
