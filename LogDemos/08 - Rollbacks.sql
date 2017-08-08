@@ -36,7 +36,7 @@ go
 
 -- Save off the value of the current maximum LSN.
 insert #maxlsn (LSN)
-select top 1 '0x' + [Current LSN] from fn_dblog(null, null) order by [Current LSN] desc;
+select top 1 N'0x' + [Current LSN] from fn_dblog(null, null) order by [Current LSN] desc;
 go
 
 -- Here is the current state of the log (just one unrelated record at the end of the log).
