@@ -44,6 +44,40 @@ from fn_dblog('285:1568:124', '285:1688:29');
 select *
 from fn_dblog('0x0000011d:00000620:007c', '0x0000011d:00000698:001d');
 
+go
+-- Get the 100th and 200th LSN from the log, then select just that range.
+declare @startLsn nvarchar(25);
+declare @endLsn nvarchar(25);
+
+with LsnList as
+(
+	select top 100 [Current LSN]
+	from fn_dblog(null, null)
+	order by [Current LSN]
+)
+select top 1 @startLsn = N'0x' + [Current LSN]
+from LsnList
+order by [Current LSN] desc;
+
+with LsnList as
+(
+	select top 100 [Current LSN]
+	from fn_dblog(@startLsn, null)
+	order by [Current LSN]
+)
+select top 1 @endLsn = N'0x' + [Current LSN]
+from LsnList
+order by [Current LSN] desc;
+
+declare @sql nvarchar(max) = 'select *
+from fn_dblog(' + isnull('''' + @startLsn + '''', 'null') + ', ' + isnull('''' + @endLsn + '''', 'null') + ');';
+
+print @sql;
+
+select *
+from fn_dblog(@startLsn, @endLsn);
+go
+
 -- By default, fn_dblog only returns records from the active portion of the log.  If trace flag 2537 is enabled,
 -- fn_dblog will return records from the inactive portion as well.
 
