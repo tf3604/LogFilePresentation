@@ -1,5 +1,5 @@
 -----------------------------------------------------------------------------------------------------------------------
--- 06 - ChangeToFullRecovery.sql
+-- 09 - Rollbacks.sql
 -----------------------------------------------------------------------------------------------------------------------
 -- Copyright 2016-2017, Brian Hansen (brian@tf3604.com).
 -- Version 1.0.4
@@ -20,39 +20,55 @@
 -- DEALINGS IN THE SOFTWARE.
 -----------------------------------------------------------------------------------------------------------------------
 
--- Setup:
---    Start LogFileVisualizer and point it at CorpDB.
---    Make sure CorpDB is in the SIMPLE recovery model.
---    Shrink the log to 10 MB.
-
 use CorpDB;
 go
+
+-- Verify that we're in FULL recovery.
 select db.recovery_model_desc from sys.databases db where db.Name = 'CorpDB';
-go
-dbcc shrinkfile (N'CorpDB_log', 10, truncateonly);
-go
 
--- Now we'll switch the database to FULL recovery.
-
-alter database CorpDB set recovery full;
-go
-select db.recovery_model_desc from sys.databases db where db.Name = 'CorpDB';
+if object_id('tempdb.dbo.#maxlsn') is not null
+	drop table #maxlsn;
+create table #maxlsn
+(
+	LSN nvarchar(25)
+);
 go
 
--- Execute the following statement to insert 10,000 records into the Customer table.
--- Observe the effects on the log.
--- Execute the statement a number of times and observe that the log does not grow.
-
-exec CorpDB.dbo.spGenerateRandomCustomers 10000;
-
--- Run the statement in a loop with a short delay between executions.
--- Stop after a few seconds.
-
-while 0 = 0
-begin;
-	exec CorpDB.dbo.spGenerateRandomCustomers 10000;
-	waitfor delay '0:00:01';
-end;
+-- Save off the value of the current maximum LSN.
+insert #maxlsn (LSN)
+select top 1 N'0x' + [Current LSN] from fn_dblog(null, null) order by [Current LSN] desc;
 go
 
--- This behavior seems exactly the same as SIMPLE recovery.  What's going on here?
+-- Here is the current state of the log (just one unrelated record at the end of the log).
+declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
+
+select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
+from fn_dblog(@maxlsn, null);
+go
+
+-- Let's start a transaction and do a couple of inserts (without .
+begin transaction;
+
+insert CorpDB.dbo.Customer (FirstName, LastName, Address, City, State)
+values ('Vanessa', 'Leach', '5764 NE Bond Mill Rd', 'Vacaville', 'CA');
+
+insert CorpDB.dbo.Customer (FirstName, LastName, Address, City, State)
+values ('Tyrone', 'Banuelos', '13926 S Charmada Blvd', 'Virginia Beach', 'VA');
+go
+
+-- Paste the statement copied above.
+declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
+
+select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
+from fn_dblog(@maxlsn, null);
+go
+
+-- Now undo the transaction, and see what gets added to the log.
+rollback transaction;
+
+declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
+
+select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
+from fn_dblog(@maxlsn, null);
+go
+

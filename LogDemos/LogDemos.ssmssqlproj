@@ -12,71 +12,77 @@
           <AssociatedConnUserName />
           <FullPath>00 - Prep.sql</FullPath>
         </FileNode>
-        <FileNode Name="01 - DbccLoginfo.sql">
+        <FileNode Name="01 - ConvertLsn.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>01 - DbccLoginfo.sql</FullPath>
+          <FullPath>01 - ConvertLsn.sql</FullPath>
         </FileNode>
-        <FileNode Name="02 - FnDblog.sql">
+        <FileNode Name="02 - DbccLoginfo.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>02 - FnDblog.sql</FullPath>
+          <FullPath>02 - DbccLoginfo.sql</FullPath>
         </FileNode>
-        <FileNode Name="03 - DbccSqlPerf_Logspace.sql">
+        <FileNode Name="03 - FnDblog.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>03 - DbccSqlPerf_Logspace.sql</FullPath>
+          <FullPath>03 - FnDblog.sql</FullPath>
         </FileNode>
-        <FileNode Name="04 - FnDumpDbLog.sql">
+        <FileNode Name="04 - DbccSqlPerf_Logspace.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>04 - FnDumpDbLog.sql</FullPath>
+          <FullPath>04 - DbccSqlPerf_Logspace.sql</FullPath>
         </FileNode>
-        <FileNode Name="05 - SimpleRecovery.sql">
+        <FileNode Name="05 - FnDumpDbLog.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>05 - SimpleRecovery.sql</FullPath>
+          <FullPath>05 - FnDumpDbLog.sql</FullPath>
         </FileNode>
-        <FileNode Name="06 - ChangeToFullRecovery.sql">
+        <FileNode Name="06 - SimpleRecovery.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>06 - ChangeToFullRecovery.sql</FullPath>
+          <FullPath>06 - SimpleRecovery.sql</FullPath>
         </FileNode>
-        <FileNode Name="06b - CheckRecoveryModel.sql">
+        <FileNode Name="07 - ChangeToFullRecovery.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>06b - CheckRecoveryModel.sql</FullPath>
+          <FullPath>07 - ChangeToFullRecovery.sql</FullPath>
         </FileNode>
-        <FileNode Name="07 - RealFullRecovery.sql">
+        <FileNode Name="07b - CheckRecoveryModel.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>07 - RealFullRecovery.sql</FullPath>
+          <FullPath>07b - CheckRecoveryModel.sql</FullPath>
         </FileNode>
-        <FileNode Name="07b - BackupLog.sql">
+        <FileNode Name="08 - RealFullRecovery.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>07b - BackupLog.sql</FullPath>
+          <FullPath>08 - RealFullRecovery.sql</FullPath>
         </FileNode>
-        <FileNode Name="08 - Rollbacks.sql">
+        <FileNode Name="08b - BackupLog.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>08 - Rollbacks.sql</FullPath>
+          <FullPath>08b - BackupLog.sql</FullPath>
         </FileNode>
-        <FileNode Name="09 - EliminatingVLFFragmentation.sql">
+        <FileNode Name="09 - Rollbacks.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>09 - EliminatingVLFFragmentation.sql</FullPath>
+          <FullPath>09 - Rollbacks.sql</FullPath>
+        </FileNode>
+        <FileNode Name="10 - EliminatingVLFFragmentation.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>10 - EliminatingVLFFragmentation.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>
