@@ -61,6 +61,18 @@ print @sql;
 
 select *
 from fn_dblog(@startLsn, @endLsn);
+
+select @startLsn = (select ColonSeparatedDecimal from dbo.ConvertLsn(@startLsn, 'Colon-separated hexadecimal'));
+select @endLsn = (select ColonSeparatedDecimal from dbo.ConvertLsn(@endLsn, 'Colon-separated hexadecimal'));
+
+select @sql = 'select *
+from fn_dblog(' + isnull('''' + @startLsn + '''', 'null') + ', ' + isnull('''' + @endLsn + '''', 'null') + ');';
+
+print @sql;
+
+select *
+from fn_dblog(@startLsn, @endLsn);
+
 go
 
 -- By default, fn_dblog only returns records from the active portion of the log.  If trace flag 2537 is enabled,
