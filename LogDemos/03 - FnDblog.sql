@@ -74,7 +74,7 @@ from fn_dblog(null, null);
 dbcc traceoff (2537);
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian@tf3604.com).
+-- Copyright 2016-2017, Brian Hansen (brian at tf3604.com).
 --
 -- MIT License
 --
