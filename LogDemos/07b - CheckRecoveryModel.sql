@@ -37,7 +37,7 @@ from sys.databases db
 where db.database_id = db_id();
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian at tf3604.com).
+-- Copyright 2016-2017, Brian Hansen (brian at tf3604 dot com).
 --
 -- MIT License
 --

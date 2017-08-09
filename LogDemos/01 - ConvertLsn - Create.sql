@@ -9,12 +9,36 @@
 -- helper function called dbo.Internal*) that will convert a LSN between different formats.
 
 -- IMPORTANT: This is very raw code at this point (originally created 8/8/2017) and *VERY LIKELY*
--- contains bugs.  Please let me know of any problems you might encounter.
--- For the most up-to-version of this script, see:
+-- contains bugs and limited error handling.  Please let me know of any problems you might encounter.
+-- For the most up-to-date version of this script, see:
 -- https://github.com/tf3604/LogFilePresentation/blob/master/LogDemos/01%20-%20ConvertLsn%20-%20Create.sql
 
+-- This script uses features that require at least SQL Server 2012.
+
+-- USAGE:
+--		select * from dbo.ConvertLsn(@lsn, @inputType)
+--			@lsn - nvarchar(25) - A string representing an LSN, formatted as indicated by @inputType.
+--			@inputType - nvarchar(30) - Indicates the format of the LSN, and can be of these values:
+--				'Colon-separated hexadecimal' - The LSN in the format of 'XXXXXXXX:XXXXXXXX:XXXX', such as: '0000011d:00000295:005b'.
+--				'Colon-separated decimal' - The LSN in the format of 'DDDD:DDD:DDD', such as '285:661:91'.
+--				'Hexadecimal' - The LSN in the format of '0xXXXXXXXXXX', such as '0x0000011D00000295005B'.
+--				'Decimal' - The LSN in the format of 'DDDDDDDDDDDDDDD', such as '285000000066100091'.
+-- OUTPUT:
+--		This a table-valued function that returns these columns.
+--			InputLsn - nvarchar(25) - Echoes the value of the @lsn input parameter.
+--			InputType - nvarchar(30) - Echoes the value of the @inputType input parameter.
+--			ColonSeparatedHexadecimal - nvarchar(22) - The input LSN represented as a colon-separated hexadecimal value.
+--			ColonSeparatedDecimal - nvarchar(25) - The input LSN represented as a colon-separated decimal value.
+--			Hexadecimal - varbinary(25) - The input LSN represented as a hexadecimal (binary) value.
+--			Decimal - decimal(25, 0) - The input LSN represented as a decimal value.
+-- EXAMPLES:
+--		select * from dbo.ConvertLsn('0000011d:00000295:005b', 'Colon-separated hexadecimal');
+--		select * from dbo.ConvertLsn('285:661:91', 'Colon-separated decimal');
+--		select * from dbo.ConvertLsn('0x0000011D00000295005B', 'Hexadecimal');
+--		select * from dbo.ConvertLsn('285000000066100091', 'Decimal');
+
 use CorpDB;
-go;
+go
 
 -- Split colon-separated hexadecimal into parts
 if exists (select * from sys.objects where name = 'InternalSeparatedHexToParts' and type = 'IF')
@@ -191,7 +215,7 @@ from dbo.InternalLsnToParts(@lsn, @inputType) lsn;
 go
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian at tf3604.com).
+-- Copyright 2016-2017, Brian Hansen (brian at tf3604 dot com).
 --
 -- MIT License
 --

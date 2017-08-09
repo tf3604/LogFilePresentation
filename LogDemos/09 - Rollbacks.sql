@@ -58,7 +58,7 @@ from fn_dblog(@maxlsn, null);
 go
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian at tf3604.com).
+-- Copyright 2016-2017, Brian Hansen (brian at tf3604 dot com).
 --
 -- MIT License
 --

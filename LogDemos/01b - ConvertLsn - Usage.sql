@@ -5,11 +5,26 @@
 -- MIT License; see bottom of this file for details.
 -----------------------------------------------------------------------------------------------------------------------
 
--- Note: SQL 2012+ only.
+use CorpDB;
+go
 
+select * from dbo.ConvertLsn('0000011d:00000295:005b', 'Colon-separated hexadecimal');
+select * from dbo.ConvertLsn('285:661:91', 'Colon-separated decimal');
+select * from dbo.ConvertLsn('0x0000011D00000295005B', 'Hexadecimal');
+select * from dbo.ConvertLsn('285000000066100091', 'Decimal');
+go
+
+-- Here is a function that outputs some LSNs in colon-separated hexadecimal format.
+select top 100 dbl.[Current LSN]
+from fn_dblog(null, null) dbl;
+
+-- Can use the ConvertLsn function to get alternate representations.
+select top 100 dbl.[Current LSN], lsn.Hexadecimal, lsn.ColonSeparatedDecimal
+from fn_dblog(null, null) dbl
+cross apply dbo.ConvertLsn(dbl.[Current LSN], 'Colon-separated hexadecimal') lsn;
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian at tf3604.com).
+-- Copyright 2016-2017, Brian Hansen (brian at tf3604 dot com).
 --
 -- MIT License
 --

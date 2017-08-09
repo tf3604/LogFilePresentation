@@ -26,7 +26,7 @@ from fn_dump_dblog (null, null, 'DISK', 1,  'C:\data\sql2016\backup\CorpDB.20160
 	null, null, null, null, null, null, null, null, null);
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian at tf3604.com).
+-- Copyright 2016-2017, Brian Hansen (brian at tf3604 dot com).
 --
 -- MIT License
 --
