@@ -1,46 +1,12 @@
 -----------------------------------------------------------------------------------------------------------------------
--- 07 - ChangeToFullRecovery.sql
--- Version 1.0.4
+-- 01b - ConvertLsn - Usage.sql
+-- Version 1.0.0
 -- Look for the most recent version of this script at www.tf3604.com/log.
 -- MIT License; see bottom of this file for details.
 -----------------------------------------------------------------------------------------------------------------------
 
--- Setup:
---    Start LogFileVisualizer and point it at CorpDB.
---    Make sure CorpDB is in the SIMPLE recovery model.
---    Shrink the log to 10 MB.
+-- Note: SQL 2012+ only.
 
-use CorpDB;
-go
-select db.recovery_model_desc from sys.databases db where db.Name = 'CorpDB';
-go
-dbcc shrinkfile (N'CorpDB_log', 10, truncateonly);
-go
-
--- Now we'll switch the database to FULL recovery.
-
-alter database CorpDB set recovery full;
-go
-select db.recovery_model_desc from sys.databases db where db.Name = 'CorpDB';
-go
-
--- Execute the following statement to insert 10,000 records into the Customer table.
--- Observe the effects on the log.
--- Execute the statement a number of times and observe that the log does not grow.
-
-exec CorpDB.dbo.spGenerateRandomCustomers 10000;
-
--- Run the statement in a loop with a short delay between executions.
--- Stop after a few seconds.
-
-while 0 = 0
-begin;
-	exec CorpDB.dbo.spGenerateRandomCustomers 10000;
-	waitfor delay '0:00:01';
-end;
-go
-
--- This behavior seems exactly the same as SIMPLE recovery.  What's going on here?
 
 -----------------------------------------------------------------------------------------------------------------------
 -- Copyright 2016-2017, Brian Hansen (brian@tf3604.com).

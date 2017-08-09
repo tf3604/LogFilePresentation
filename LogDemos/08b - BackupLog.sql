@@ -1,9 +1,22 @@
 -----------------------------------------------------------------------------------------------------------------------
 -- 08b - BackupLog.sql
------------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian@tf3604.com).
 -- Version 1.0.4
 -- Look for the most recent version of this script at www.tf3604.com/log.
+-- MIT License; see bottom of this file for details.
+-----------------------------------------------------------------------------------------------------------------------
+
+-- Backup the log at 20 second intervals.
+
+while 0 = 0
+begin;
+	backup log CorpDB to disk = 'nul';
+	waitfor delay '0:00:20';
+end;
+
+-----------------------------------------------------------------------------------------------------------------------
+-- Copyright 2016-2017, Brian Hansen (brian@tf3604.com).
+--
+-- MIT License
 --
 -- Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 -- documentation files (the "Software"), to deal in the Software without restriction, including without limitation 
@@ -19,11 +32,3 @@
 -- CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 -- DEALINGS IN THE SOFTWARE.
 -----------------------------------------------------------------------------------------------------------------------
-
--- Backup the log at 20 second intervals.
-
-while 0 = 0
-begin;
-	backup log CorpDB to disk = 'nul';
-	waitfor delay '0:00:20';
-end;

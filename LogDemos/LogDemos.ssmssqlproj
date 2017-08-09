@@ -12,11 +12,17 @@
           <AssociatedConnUserName />
           <FullPath>00 - Prep.sql</FullPath>
         </FileNode>
-        <FileNode Name="01 - ConvertLsn.sql">
+        <FileNode Name="01 - ConvertLsn - Create.sql">
           <AssociatedConnectionMoniker />
           <AssociatedConnSrvName />
           <AssociatedConnUserName />
-          <FullPath>01 - ConvertLsn.sql</FullPath>
+          <FullPath>01 - ConvertLsn - Create.sql</FullPath>
+        </FileNode>
+        <FileNode Name="01b - ConvertLsn - Usage.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>01b - ConvertLsn - Usage.sql</FullPath>
         </FileNode>
         <FileNode Name="02 - DbccLoginfo.sql">
           <AssociatedConnectionMoniker />
