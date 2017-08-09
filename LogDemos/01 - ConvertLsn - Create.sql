@@ -4,6 +4,15 @@
 -- Look for the most recent version of this script at www.tf3604.com/log.
 -- MIT License; see bottom of this file for details.
 -----------------------------------------------------------------------------------------------------------------------
+
+-- This script create an inline table-valued user-defined function called dbo.ConvertLsn (and some
+-- helper function called dbo.Internal*) that will convert a LSN between different formats.
+
+-- IMPORTANT: This is very raw code at this point (originally created 8/8/2017) and *VERY LIKELY*
+-- contains bugs.  Please let me know of any problems you might encounter.
+-- For the most up-to-version of this script, see:
+-- https://github.com/tf3604/LogFilePresentation/blob/master/LogDemos/01%20-%20ConvertLsn%20-%20Create.sql
+
 use CorpDB;
 go;
 
