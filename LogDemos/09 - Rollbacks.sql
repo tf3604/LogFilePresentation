@@ -28,10 +28,12 @@ go
 declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
 
 select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
-from fn_dblog(@maxlsn, null);
+from fn_dblog(@maxlsn, null)
+order by [Current LSN]
+offset 1 row;
 go
 
--- Let's start a transaction and do a couple of inserts (without .
+-- Let's start a transaction and do a couple of inserts (without commiting the transaction).
 begin transaction;
 
 insert CorpDB.dbo.Customer (FirstName, LastName, Address, City, State)
@@ -45,7 +47,9 @@ go
 declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
 
 select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
-from fn_dblog(@maxlsn, null);
+from fn_dblog(@maxlsn, null)
+order by [Current LSN]
+offset 1 row;
 go
 
 -- Now undo the transaction, and see what gets added to the log.
@@ -54,7 +58,9 @@ rollback transaction;
 declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
 
 select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
-from fn_dblog(@maxlsn, null);
+from fn_dblog(@maxlsn, null)
+order by [Current LSN]
+offset 1 row;
 go
 
 -----------------------------------------------------------------------------------------------------------------------
