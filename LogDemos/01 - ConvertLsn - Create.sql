@@ -52,12 +52,15 @@ create function dbo.InternalSeparatedHexToParts
 returns table
 as
 return
-with Parts as
+with l0 as (select 1 v union all select 1), l1 as (select a.v from l0 a, l0), l2 as (select a.v from l1 a, l1),
+l3 as (select a.v from l2 a, l2), l4 as (select a.v from l3 a, l3), l5 as (select a.v from l4 a, l4),
+Nums as (select row_number() over (order by (select null)) n from l5),
+Parts as
 (
 	select case when len(@lsn) > 2 and substring(@lsn, 1, 2) = '0x' then 3 else 1 end Boundary
 	union all
 	select n.n + 1
-	from Admin.dbo.Nums n
+	from Nums n
 	where n.n < len(@lsn)
 	and substring(@lsn, n.n, 1) = ':'
 	union all
