@@ -24,7 +24,7 @@ from fn_dblog(null, null) dbl
 cross apply dbo.ConvertLsn(dbl.[Current LSN], 'Colon-separated hexadecimal') lsn;
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian at tf3604 dot com).
+-- Copyright 2016-2019, Brian Hansen (brian at tf3604 dot com).
 --
 -- MIT License
 --

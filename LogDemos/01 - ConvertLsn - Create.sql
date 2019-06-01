@@ -8,7 +8,7 @@
 -- This script create an inline table-valued user-defined function called dbo.ConvertLsn (and some
 -- helper function called dbo.Internal*) that will convert a LSN between different formats.
 
--- IMPORTANT: This is very raw code at this point (originally created 8/8/2017) and *VERY LIKELY*
+-- IMPORTANT: This is very raw code at this point (originally created 8/8/2019) and *VERY LIKELY*
 -- contains bugs and limited error handling.  Please let me know of any problems you might encounter.
 -- For the most up-to-date version of this script, see:
 -- https://github.com/tf3604/LogFilePresentation/blob/master/LogDemos/01%20-%20ConvertLsn%20-%20Create.sql
@@ -221,7 +221,7 @@ from dbo.InternalLsnToParts(@lsn, @inputType) lsn;
 go
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian at tf3604 dot com).
+-- Copyright 2016-2019, Brian Hansen (brian at tf3604 dot com).
 --
 -- MIT License
 --

@@ -43,7 +43,7 @@ go
 -- This behavior seems exactly the same as SIMPLE recovery.  What's going on here?
 
 -----------------------------------------------------------------------------------------------------------------------
--- Copyright 2016-2017, Brian Hansen (brian at tf3604 dot com).
+-- Copyright 2016-2019, Brian Hansen (brian at tf3604 dot com).
 --
 -- MIT License
 --
