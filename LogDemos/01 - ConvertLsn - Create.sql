@@ -1,6 +1,6 @@
 -----------------------------------------------------------------------------------------------------------------------
 -- 01 - ConvertLsn - Create.sql
--- Version 1.0.0
+-- Version 1.0.5
 -- Look for the most recent version of this script at www.tf3604.com/log.
 -- MIT License; see bottom of this file for details.
 -----------------------------------------------------------------------------------------------------------------------
