@@ -30,7 +30,7 @@ declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
 select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
 from fn_dblog(@maxlsn, null)
 order by [Current LSN]
-offset 1 row;
+--offset 1 row;
 go
 
 -- Let's start a transaction and do a couple of inserts (without commiting the transaction).
@@ -49,7 +49,7 @@ declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
 select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
 from fn_dblog(@maxlsn, null)
 order by [Current LSN]
-offset 1 row;
+--offset 1 row;
 go
 
 -- Now undo the transaction, and see what gets added to the log.
@@ -60,7 +60,7 @@ declare @maxlsn nvarchar(25) = (select top 1 LSN from #maxlsn);
 select [Current LSN], Operation, Context, [Transaction ID], [Log Reserve], Description, [Previous LSN]
 from fn_dblog(@maxlsn, null)
 order by [Current LSN]
-offset 1 row;
+--offset 1 row;
 go
 
 -----------------------------------------------------------------------------------------------------------------------
